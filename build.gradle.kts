@@ -51,6 +51,9 @@ repositories {
     gradlePluginPortal()
 }
 
+println("Github user name: " + githubUsername)
+
+
 //Plugin declarations
 plugins {
     base
