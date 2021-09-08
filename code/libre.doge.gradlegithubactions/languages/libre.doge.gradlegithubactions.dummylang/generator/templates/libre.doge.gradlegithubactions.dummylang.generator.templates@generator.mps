@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model ref="r:5069937c-1c78-4bc7-94f9-34a4b2baea55(DummyLanguage.generator.templates@generator)">
+<model ref="r:ae259a44-7bf4-403b-a17e-3ce86c8df4a3(libre.doge.gradlegithubactions.dummylang.generator.templates@generator)">
   <persistence version="9" />
   <languages>
     <devkit ref="a2eb3a43-fcc2-4200-80dc-c60110c4862d(jetbrains.mps.devkit.templates)" />
   </languages>
   <imports>
-    <import index="5rev" ref="r:44ea46d0-4c0e-4740-a2cd-42d962732d4e(DummyLanguage.structure)" />
+    <import index="prft" ref="r:9523eeb9-8990-4da7-9f74-aa1b0093b02c(libre.doge.gradlegithubactions.dummylang.structure)" />
   </imports>
   <registry>
     <language id="b401a680-8325-4110-8fd3-84331ff25bef" name="jetbrains.mps.lang.generator">
@@ -17,7 +17,7 @@
       </concept>
     </language>
   </registry>
-  <node concept="bUwia" id="4MDcN1dsOSL">
+  <node concept="bUwia" id="4MDcN1dsVbp">
     <property role="TrG5h" value="main" />
   </node>
 </model>

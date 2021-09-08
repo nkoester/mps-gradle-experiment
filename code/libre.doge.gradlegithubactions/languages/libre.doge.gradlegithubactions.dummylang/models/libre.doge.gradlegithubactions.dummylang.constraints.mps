@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model ref="r:f4643577-644d-4fdd-86d1-483af774f3ff(DummyLanguage.constraints)">
+<model ref="r:459018cb-5244-4587-85b1-fa32eb9e0cc8(libre.doge.gradlegithubactions.dummylang.constraints)">
   <persistence version="9" />
   <languages>
     <use id="5dae8159-ab99-46bb-a40d-0cee30ee7018" name="jetbrains.mps.lang.constraints.rules.kinds" version="0" />

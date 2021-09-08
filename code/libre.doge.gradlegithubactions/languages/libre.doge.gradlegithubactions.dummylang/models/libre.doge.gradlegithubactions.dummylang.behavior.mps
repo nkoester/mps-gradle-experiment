@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<model ref="r:d98a6061-085c-4add-95c2-a2e0d833cd72(DummyLanguage.behavior)">
+<model ref="r:1cadb982-f562-4fc0-a958-bc0aca71937a(libre.doge.gradlegithubactions.dummylang.behavior)">
   <persistence version="9" />
   <languages>
     <use id="7866978e-a0f0-4cc7-81bc-4d213d9375e1" name="jetbrains.mps.lang.smodel" version="17" />
