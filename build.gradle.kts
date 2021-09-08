@@ -19,10 +19,34 @@ buildscript {
 
 }
 
+var githubUsername:String? = null
+var githubToken:String? = null
+
+if(System.getenv("GITHUB_ACTOR")!=null){
+    //CI build uses github built-in credentials
+    githubUsername = System.getenv("GITHUB_ACTOR")
+    githubToken = System.getenv("GITHUB_TOKEN")
+}else if(project.hasProperty("github_username")){
+    //local build uses user provided credentials from gradle.properties file
+    githubUsername = project.properties["github_username"] as String
+    githubToken = project.properties["github_token"] as String
+}else{
+}
 
 // Repository declarations
 repositories {
-    maven {url = uri("https://projects.itemis.de/nexus/content/repositories/mbeddr")}
+    // maven {url = uri("https://projects.itemis.de/nexus/content/repositories/mbeddr")}
+    maven {url = uri("https://maven.pkg.github.com//mbeddr/mbeddr.core")
+            credentials {
+                username = githubUsername
+                password = githubToken
+            }}
+    maven {url = uri("https://maven.pkg.github.com/IETS3/iets3.opensource")
+            credentials {
+                username = githubUsername
+                password = githubToken
+            }}
+
     mavenCentral()
     gradlePluginPortal()
 }
@@ -37,7 +61,7 @@ plugins {
 }
 
 downloadJbr {
-    jbrVersion = "11_0_9_1-b1145.77"
+    jbrVersion = "11_0_10-b1145.96"
     downloadDir = file("jbrdl")
 }
 
