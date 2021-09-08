@@ -35,6 +35,7 @@ jobs:
         wrapper-cache-enabled: true
         dependencies-cache-enabled: true
         configuration-cache-enabled: true
+        github_token: ${{ secrets.GITHUB_TOKEN }}
     - name: Execute Tests with Gradle
       uses: eskatos/gradle-command-action@v1.3.3
       with:
