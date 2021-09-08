@@ -1,0 +1,62 @@
+# -----------------------------------------------------------
+# General
+# -----------------------------------------------------------
+.ant_targets
+.DS_Store
+.metadata
+.svn
+build/
+/artifacts/
+/tmp/
+lib/
+cell-screenshots/
+
+
+# -----------------------------------------------------------
+# Model Checking Results
+# -----------------------------------------------------------
+*.csv
+
+# -----------------------------------------------------------
+# IDEA
+# -----------------------------------------------------------
+.idea
+workspace.xml
+libraries.xml
+
+# -----------------------------------------------------------
+# JUNIT
+# -----------------------------------------------------------
+junitvmwatcher*.properties
+build.properties
+TEST-*.xml
+junit*.properties
+
+# -----------------------------------------------------------
+# MPS
+# -----------------------------------------------------------
+classes_gen
+source_gen
+source_gen.caches
+test_gen
+test_gen.caches
+code/languages/*/*.iws
+code/languages/*/build.properties
+code/languages/*/TEST*.xml
+doc_gen
+code/doc
+
+# -----------------------------------------------------------
+# GRADLE
+# -----------------------------------------------------------
+.gradle/
+gradle.properties
+/gradle.properties
+action-checker/testdata/actions.json
+.gradletasknamecache
+
+# -----------------------------------------------------------
+# Auto-generated icons
+# -----------------------------------------------------------
+*CharIcon.png
+projectlibraries.overrides.properties
