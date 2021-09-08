@@ -234,6 +234,23 @@
               <property role="3qWCbO" value="**/*.mps, **/*.mpsr, **/.model" />
             </node>
           </node>
+          <node concept="3LXTmp" id="4MDcN1dt42y" role="1HemKq">
+            <node concept="398BVA" id="4MDcN1dt42o" role="3LXTmr">
+              <ref role="398BVh" node="4MDcN1dt0mb" resolve="libre.doge.gradlegithubactions.lang" />
+              <node concept="2Ry0Ak" id="4MDcN1dt42p" role="iGT6I">
+                <property role="2Ry0Am" value="languages" />
+                <node concept="2Ry0Ak" id="4MDcN1dt42q" role="2Ry0An">
+                  <property role="2Ry0Am" value="libre.doge.gradlegithubactions.dummylang" />
+                  <node concept="2Ry0Ak" id="4MDcN1dt42r" role="2Ry0An">
+                    <property role="2Ry0Am" value="models" />
+                  </node>
+                </node>
+              </node>
+            </node>
+            <node concept="3qWCbU" id="4MDcN1dt42z" role="3LXTna">
+              <property role="3qWCbO" value="**/*.mps, **/*.mpsr, **/.model" />
+            </node>
+          </node>
         </node>
         <node concept="1yeLz9" id="4MDcN1dsWyl" role="1TViLv">
           <property role="TrG5h" value="libre.doge.gradlegithubactions.dummylang.generator" />
@@ -258,6 +275,26 @@
                 </node>
               </node>
               <node concept="3qWCbU" id="4MDcN1dsWyt" role="3LXTna">
+                <property role="3qWCbO" value="**/*.mps, **/*.mpsr, **/.model" />
+              </node>
+            </node>
+            <node concept="3LXTmp" id="4MDcN1dt42K" role="1HemKq">
+              <node concept="398BVA" id="4MDcN1dt42$" role="3LXTmr">
+                <ref role="398BVh" node="4MDcN1dt0mb" resolve="libre.doge.gradlegithubactions.lang" />
+                <node concept="2Ry0Ak" id="4MDcN1dt42_" role="iGT6I">
+                  <property role="2Ry0Am" value="languages" />
+                  <node concept="2Ry0Ak" id="4MDcN1dt42A" role="2Ry0An">
+                    <property role="2Ry0Am" value="libre.doge.gradlegithubactions.dummylang" />
+                    <node concept="2Ry0Ak" id="4MDcN1dt42B" role="2Ry0An">
+                      <property role="2Ry0Am" value="generator" />
+                      <node concept="2Ry0Ak" id="4MDcN1dt42C" role="2Ry0An">
+                        <property role="2Ry0Am" value="templates" />
+                      </node>
+                    </node>
+                  </node>
+                </node>
+              </node>
+              <node concept="3qWCbU" id="4MDcN1dt42L" role="3LXTna">
                 <property role="3qWCbO" value="**/*.mps, **/*.mpsr, **/.model" />
               </node>
             </node>
