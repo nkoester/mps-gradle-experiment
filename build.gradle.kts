@@ -31,16 +31,24 @@ if(System.getenv("GITHUB_ACTOR")!=null){
 // Repository declarations
 repositories {
     // maven {url = uri("https://projects.itemis.de/nexus/content/repositories/mbeddr")}
-    maven {url = uri("https://maven.pkg.github.com//mbeddr")
-            credentials {
-                username = githubUsername
-                password = githubToken
-            }}
+    maven {url = uri("https://maven.pkg.github.com//mbeddr/mbeddr.core")
+        credentials {
+            username = githubUsername
+            password = githubToken
+        }
+    }
+    maven {url = uri("https://maven.pkg.github.com//mbeddr/build.publish.jdk")
+        credentials {
+            username = githubUsername
+            password = githubToken
+        }
+    }
     maven {url = uri("https://maven.pkg.github.com/IETS3/iets3.opensource")
-            credentials {
-                username = githubUsername
-                password = githubToken
-            }}
+        credentials {
+            username = githubUsername
+            password = githubToken
+        }
+    }
 
     mavenCentral()
     gradlePluginPortal()
@@ -91,6 +99,7 @@ description = "libre.doge.test tests tests :>"
 val mps = configurations.create("mps")
 val junitAnt = configurations.create("junitAnt")
 val iets3 = configurations.create("iets3")
+val mbeddr = configurations.create("mbeddr")
 val jdk = configurations.create("jdk")
 
 val mpsHomeDir = file(project.findProperty("mpsHomeDir") ?: "$projectDir/build/mps")
@@ -98,9 +107,6 @@ val mpsProjectDir = file("$projectDir/code/libre.doge.gradlegithubactions")
 val artifactsDir = file("$projectDir/build/artifacts")
 val buildDir = "$projectDir/build"
 val jdkDir = file("$artifactsDir/jdk")
-val jaxbDir = file("$mpsProjectDir/solutions/javax.xml.bind.jaxb/lib")
-val guavaDir = file("$mpsProjectDir/solutions/com.google.guava/lib")
-val jnaDir = file("$mpsProjectDir/solutions/net.java.dev.jna/lib")
 val previousVersionDir = file("$artifactsDir/previousVersion")
 val currentVersionDir = file("$artifactsDir/libre.doge.ditrso")
 
@@ -153,8 +159,8 @@ println("winDistroVersionOfLastWeek: " + winDistroVersionOfLastWeek())
 dependencies {
     mps("com.jetbrains:mps:$mpsVersion")
     junitAnt("org.apache.ant:ant-junit:1.10.6")
-    iets3("org.iets3:opensource:$majorVersion.$minorVersion.+")
     // iets3("org.iets3:opensource:2020.3.5094.6bd9f15@tgz")
+    mbeddr("com.mbeddr:platform:2020.3.23001.6927e1d")
     jdk("com.jetbrains.jdk:jbrsdk:11_0_10-b1341.41:linux-x64@tgz")
     jdk("com.jetbrains.jdk:jbrsdk:11_0_10-b1341.41:windows-x64@tgz")
     jdk("com.jetbrains.jdk:jbrsdk:11_0_10-b1341.41:osx-x64@tgz")
