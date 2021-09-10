@@ -8,17 +8,12 @@ import java.time.LocalDate
 import java.time.temporal.WeekFields
 
 buildscript {
-  repositories {
-    maven {
-        url = uri("https://projects.itemis.de/nexus/content/repositories/mbeddr")
-    }
-  }
   dependencies {
     classpath("de.itemis.mps:mps-gradle-plugin:1.4.+")
   }
-
 }
 
+// Credentials for github - allows to obtain packages
 var githubUsername:String? = null
 var githubToken:String? = null
 
@@ -36,7 +31,7 @@ if(System.getenv("GITHUB_ACTOR")!=null){
 // Repository declarations
 repositories {
     // maven {url = uri("https://projects.itemis.de/nexus/content/repositories/mbeddr")}
-    maven {url = uri("https://maven.pkg.github.com//mbeddr/mbeddr.core")
+    maven {url = uri("https://maven.pkg.github.com//mbeddr")
             credentials {
                 username = githubUsername
                 password = githubToken
@@ -159,9 +154,10 @@ dependencies {
     mps("com.jetbrains:mps:$mpsVersion")
     junitAnt("org.apache.ant:ant-junit:1.10.6")
     iets3("org.iets3:opensource:$majorVersion.$minorVersion.+")
-    jdk("com.jetbrains.jdk:jbrsdk:11_0_4-b304.78:linux-x64@tgz")
-    jdk("com.jetbrains.jdk:jbrsdk:11_0_4-b304.78:windows-x64@tgz")
-    jdk("com.jetbrains.jdk:jbrsdk:11_0_4-b304.78:osx-x64@tgz")
+    // iets3("org.iets3:opensource:2020.3.5094.6bd9f15@tgz")
+    jdk("com.jetbrains.jdk:jbrsdk:11_0_10-b1341.41:linux-x64@tgz")
+    jdk("com.jetbrains.jdk:jbrsdk:11_0_10-b1341.41:windows-x64@tgz")
+    jdk("com.jetbrains.jdk:jbrsdk:11_0_10-b1341.41:osx-x64@tgz")
     configurations["api"](files("$mpsHomeDir/lib/log4j.jar", "$mpsHomeDir/lib/jna.jar", "$mpsHomeDir/lib/jna-platform.jar"))
 }
 
