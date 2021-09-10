@@ -16,8 +16,9 @@ buildscript {
 // Credentials for github - allows to obtain packages
 var githubUsername:String? = null
 var githubToken:String? = null
-githubUsername = project.findProperty("gpr.user") as String
-githubToken = project.findProperty("gpr.token") as String
+githubUsername = project.findProperty("gpr.user") as String? ?: System.getenv("githubUsername")
+githubToken = project.findProperty("gpr.token") as String? ?: System.getenv("githubToken")
+
 
 // Repository declarations
 repositories {
