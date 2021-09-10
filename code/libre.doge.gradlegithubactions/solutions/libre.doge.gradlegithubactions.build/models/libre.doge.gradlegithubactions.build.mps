@@ -218,22 +218,6 @@
           <property role="3ZfqAx" value="models" />
           <property role="1Hdu6h" value="true" />
           <property role="1HemKv" value="true" />
-          <node concept="3LXTmp" id="4MDcN1dsWyj" role="1HemKq">
-            <node concept="55IIr" id="4MDcN1dsWye" role="3LXTmr">
-              <node concept="2Ry0Ak" id="4MDcN1dsWyf" role="iGT6I">
-                <property role="2Ry0Am" value="languages" />
-                <node concept="2Ry0Ak" id="4MDcN1dsWyg" role="2Ry0An">
-                  <property role="2Ry0Am" value="libre.doge.gradlegithubactions.dummylang" />
-                  <node concept="2Ry0Ak" id="4MDcN1dsWyh" role="2Ry0An">
-                    <property role="2Ry0Am" value="models" />
-                  </node>
-                </node>
-              </node>
-            </node>
-            <node concept="3qWCbU" id="4MDcN1dsWyk" role="3LXTna">
-              <property role="3qWCbO" value="**/*.mps, **/*.mpsr, **/.model" />
-            </node>
-          </node>
           <node concept="3LXTmp" id="4MDcN1dt42y" role="1HemKq">
             <node concept="398BVA" id="4MDcN1dt42o" role="3LXTmr">
               <ref role="398BVh" node="4MDcN1dt0mb" resolve="libre.doge.gradlegithubactions.lang" />
@@ -259,25 +243,6 @@
             <property role="3ZfqAx" value="generator/templates" />
             <property role="1Hdu6h" value="true" />
             <property role="1HemKv" value="true" />
-            <node concept="3LXTmp" id="4MDcN1dsWys" role="1HemKq">
-              <node concept="55IIr" id="4MDcN1dsWym" role="3LXTmr">
-                <node concept="2Ry0Ak" id="4MDcN1dsWyn" role="iGT6I">
-                  <property role="2Ry0Am" value="languages" />
-                  <node concept="2Ry0Ak" id="4MDcN1dsWyo" role="2Ry0An">
-                    <property role="2Ry0Am" value="libre.doge.gradlegithubactions.dummylang" />
-                    <node concept="2Ry0Ak" id="4MDcN1dsWyp" role="2Ry0An">
-                      <property role="2Ry0Am" value="generator" />
-                      <node concept="2Ry0Ak" id="4MDcN1dsWyq" role="2Ry0An">
-                        <property role="2Ry0Am" value="templates" />
-                      </node>
-                    </node>
-                  </node>
-                </node>
-              </node>
-              <node concept="3qWCbU" id="4MDcN1dsWyt" role="3LXTna">
-                <property role="3qWCbO" value="**/*.mps, **/*.mpsr, **/.model" />
-              </node>
-            </node>
             <node concept="3LXTmp" id="4MDcN1dt42K" role="1HemKq">
               <node concept="398BVA" id="4MDcN1dt42$" role="3LXTmr">
                 <ref role="398BVh" node="4MDcN1dt0mb" resolve="libre.doge.gradlegithubactions.lang" />

@@ -8,24 +8,44 @@ import java.time.LocalDate
 import java.time.temporal.WeekFields
 
 buildscript {
-  repositories {
-    maven {
-        url = uri("https://projects.itemis.de/nexus/content/repositories/mbeddr")
-    }
-  }
   dependencies {
     classpath("de.itemis.mps:mps-gradle-plugin:1.4.+")
   }
-
 }
 
+// Obtain gihub credentials for github packages access
+var githubUsername = project.findProperty("gpr.user") as String? ?: System.getenv("githubUsername")
+var githubToken = project.findProperty("gpr.token") as String? ?: System.getenv("githubToken")
 
-// Repository declarations
+
 repositories {
-    maven {url = uri("https://projects.itemis.de/nexus/content/repositories/mbeddr")}
+    maven {
+        url = uri("https://maven.pkg.github.com//mbeddr/mbeddr.core")
+        credentials {
+            username = githubUsername
+            password = githubToken
+        }
+    }
+    maven {
+        url = uri("https://maven.pkg.github.com//mbeddr/build.publish.jdk")
+        credentials {
+            username = githubUsername
+            password = githubToken
+        }
+    }
+    maven {
+        url = uri("https://maven.pkg.github.com/IETS3/iets3.opensource")
+        credentials {
+            username = githubUsername
+            password = githubToken
+        }
+    }
     mavenCentral()
     gradlePluginPortal()
 }
+
+println("Github user name: " + githubUsername)
+
 
 //Plugin declarations
 plugins {
@@ -37,7 +57,7 @@ plugins {
 }
 
 downloadJbr {
-    jbrVersion = "11_0_9_1-b1145.77"
+    jbrVersion = "11_0_10-b1145.96"
     downloadDir = file("jbrdl")
 }
 
@@ -69,6 +89,7 @@ description = "libre.doge.test tests tests :>"
 val mps = configurations.create("mps")
 val junitAnt = configurations.create("junitAnt")
 val iets3 = configurations.create("iets3")
+val mbeddr = configurations.create("mbeddr")
 val jdk = configurations.create("jdk")
 
 val mpsHomeDir = file(project.findProperty("mpsHomeDir") ?: "$projectDir/build/mps")
@@ -76,9 +97,6 @@ val mpsProjectDir = file("$projectDir/code/libre.doge.gradlegithubactions")
 val artifactsDir = file("$projectDir/build/artifacts")
 val buildDir = "$projectDir/build"
 val jdkDir = file("$artifactsDir/jdk")
-val jaxbDir = file("$mpsProjectDir/solutions/javax.xml.bind.jaxb/lib")
-val guavaDir = file("$mpsProjectDir/solutions/com.google.guava/lib")
-val jnaDir = file("$mpsProjectDir/solutions/net.java.dev.jna/lib")
 val previousVersionDir = file("$artifactsDir/previousVersion")
 val currentVersionDir = file("$artifactsDir/libre.doge.ditrso")
 
@@ -131,10 +149,11 @@ println("winDistroVersionOfLastWeek: " + winDistroVersionOfLastWeek())
 dependencies {
     mps("com.jetbrains:mps:$mpsVersion")
     junitAnt("org.apache.ant:ant-junit:1.10.6")
-    iets3("org.iets3:opensource:$majorVersion.$minorVersion.+")
-    jdk("com.jetbrains.jdk:jbrsdk:11_0_4-b304.78:linux-x64@tgz")
-    jdk("com.jetbrains.jdk:jbrsdk:11_0_4-b304.78:windows-x64@tgz")
-    jdk("com.jetbrains.jdk:jbrsdk:11_0_4-b304.78:osx-x64@tgz")
+    // iets3("org.iets3:opensource:2020.3.5094.6bd9f15@tgz")
+    mbeddr("com.mbeddr:platform:2020.3.23001.6927e1d")
+    jdk("com.jetbrains.jdk:jbrsdk:11_0_10-b1341.41:linux-x64@tgz")
+    jdk("com.jetbrains.jdk:jbrsdk:11_0_10-b1341.41:windows-x64@tgz")
+    jdk("com.jetbrains.jdk:jbrsdk:11_0_10-b1341.41:osx-x64@tgz")
     configurations["api"](files("$mpsHomeDir/lib/log4j.jar", "$mpsHomeDir/lib/jna.jar", "$mpsHomeDir/lib/jna-platform.jar"))
 }
 
@@ -209,6 +228,12 @@ val generateLibrariesXml = tasks.register<Copy>("generateLibrariesXml"){
     rename("libraries.xml.example","libraries.xml")
 }
 
+val testLanguages = tasks.register<BuildLanguages>("testLanguages") {
+    description = "Builds project languages."
+    group = TASK_GROUP_BUILD
+    dependsOn(setup)
+    script = file("$buildDir/build.xml")
+}
 
 val buildLanguages = tasks.register<BuildLanguages>("buildLanguages") {
     description = "Builds project languages."
