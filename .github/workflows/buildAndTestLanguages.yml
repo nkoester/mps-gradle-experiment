@@ -17,7 +17,6 @@ jobs:
     runs-on: ubuntu-latest
     env:
       DISPLAY: ':99'
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
     steps:
     - uses: actions/checkout@v2
