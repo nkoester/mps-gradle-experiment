@@ -18,27 +18,28 @@ var githubUsername = project.findProperty("gpr.user") as String? ?: System.geten
 var githubToken = project.findProperty("gpr.token") as String? ?: System.getenv("githubToken")
 
 
-// Repository declarations
 repositories {
-    maven {url = uri("https://maven.pkg.github.com//mbeddr/mbeddr.core")
+    maven {
+        url = uri("https://maven.pkg.github.com//mbeddr/mbeddr.core")
         credentials {
             username = githubUsername
             password = githubToken
         }
     }
-    maven {url = uri("https://maven.pkg.github.com//mbeddr/build.publish.jdk")
+    maven {
+        url = uri("https://maven.pkg.github.com//mbeddr/build.publish.jdk")
         credentials {
             username = githubUsername
             password = githubToken
         }
     }
-    maven {url = uri("https://maven.pkg.github.com/IETS3/iets3.opensource")
+    maven {
+        url = uri("https://maven.pkg.github.com/IETS3/iets3.opensource")
         credentials {
             username = githubUsername
             password = githubToken
         }
     }
-
     mavenCentral()
     gradlePluginPortal()
 }
