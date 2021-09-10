@@ -159,6 +159,7 @@ println("winDistroVersionOfLastWeek: " + winDistroVersionOfLastWeek())
 dependencies {
     mps("com.jetbrains:mps:$mpsVersion")
     junitAnt("org.apache.ant:ant-junit:1.10.6")
+    iets3("org.iets3:opensource:$majorVersion.$minorVersion.5093.6bd9f15")
     // iets3("org.iets3:opensource:2020.3.5094.6bd9f15@tgz")
     mbeddr("com.mbeddr:platform:2020.3.23001.6927e1d")
     jdk("com.jetbrains.jdk:jbrsdk:11_0_10-b1341.41:linux-x64@tgz")
@@ -238,6 +239,12 @@ val generateLibrariesXml = tasks.register<Copy>("generateLibrariesXml"){
     rename("libraries.xml.example","libraries.xml")
 }
 
+val testLanguages = tasks.register<BuildLanguages>("testanguages") {
+    description = "Builds project languages."
+    group = TASK_GROUP_BUILD
+    dependsOn(setup)
+    script = file("$buildDir/build.xml")
+}
 
 val buildLanguages = tasks.register<BuildLanguages>("buildLanguages") {
     description = "Builds project languages."
