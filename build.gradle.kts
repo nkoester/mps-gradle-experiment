@@ -238,7 +238,7 @@ val generateLibrariesXml = tasks.register<Copy>("generateLibrariesXml"){
     rename("libraries.xml.example","libraries.xml")
 }
 
-val testLanguages = tasks.register<BuildLanguages>("testanguages") {
+val testLanguages = tasks.register<BuildLanguages>("testLanguages") {
     description = "Builds project languages."
     group = TASK_GROUP_BUILD
     dependsOn(setup)
