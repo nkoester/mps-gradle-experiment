@@ -16,21 +16,11 @@ buildscript {
 // Credentials for github - allows to obtain packages
 var githubUsername:String? = null
 var githubToken:String? = null
-
-if(System.getenv("GITHUB_ACTOR")!=null){
-    //CI build uses github built-in credentials
-    githubUsername = System.getenv("GITHUB_ACTOR")
-    githubToken = System.getenv("GITHUB_TOKEN")
-}else if(project.hasProperty("github_username")){
-    //local build uses user provided credentials from gradle.properties file
-    githubUsername = project.properties["github_username"] as String
-    githubToken = project.properties["github_token"] as String
-}else{
-}
+githubUsername = project.findProperty("gpr.user") as String
+githubToken = project.findProperty("gpr.token") as String
 
 // Repository declarations
 repositories {
-    // maven {url = uri("https://projects.itemis.de/nexus/content/repositories/mbeddr")}
     maven {url = uri("https://maven.pkg.github.com//mbeddr/mbeddr.core")
         credentials {
             username = githubUsername
